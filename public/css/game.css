@@ -1,0 +1,349 @@
+body {
+  margin: 0;
+  background: #273f66;
+  font-family: sans-serif;
+  font-size: 16px;
+}
+
+.hide {
+  display: none;
+}
+
+body > button {
+  padding: 10px;
+  display: block;
+}
+
+.viewport {
+  position: relative;
+  height: 420px;
+  width: 320px;
+  background: #fff;
+  border: 20px solid #230a36;
+  border-radius: 6px;
+  margin: 0 auto;
+  overflow: hidden;
+}
+
+.game-view {
+  width: 100%;
+  height: 100%;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+}
+
+@media (max-device-width: 480px) {
+  .viewport {
+    border: 0;
+  }
+
+  body > button {
+    position: absolute;
+    z-index: 1;
+  }
+}
+
+.selected {
+  background-color: lightblue;
+}
+
+.navigation {
+  background: #eee;
+  border-bottom: 1px solid #666;
+  box-shadow: 0 1px 0 0 #aaa;
+  height: 60px;
+  display: -webkit-box;
+  -webkit-box-pack: center;
+}
+
+.navigation .token {
+  width: 36px;
+  height: 36px;
+  border: 2px dashed #666;
+  border-radius: 20px;
+  display: inline-block;
+  margin: 10px 10px 5px;
+}
+
+.navigation .token.fail {
+  background-color: #610B21;
+}
+
+.navigation .token.pass {
+  background-color: #0B2161;
+}
+
+.mission-list {
+  overflow-y: scroll;
+  overflow-x: hidden;
+  width: 320px;
+  height: 360px;
+}
+
+.person img {
+  width: 30px;
+  height: 30px;
+  vertical-align: middle;
+}
+
+.mission {
+  width: inherit;
+  height: inherit;
+  overflow: hidden;
+  line-height: 30px;
+  display: -webkit-box;
+  -webkit-box-flex: 1;
+  -webkit-box-orient: vertical;
+}
+
+.mission .summary-view {
+  padding: 10px;
+}
+
+.game-list {
+  overflow-y: scroll;
+  height: 290px;
+  border: 2px solid black;
+  padding: 10px;
+  list-style: none;
+}
+
+.mission .summary-view .status,
+.pregame-view .status {
+  background: #e6ed80;
+  margin: -10px -10px 10px;
+  padding: 5px 10px;
+  text-align: center;
+  line-height: 32px;
+}
+
+.mission .summary-view .attempt {
+  float: right;
+  color: #777;
+  padding: 10px;
+}
+
+.mission .controls {
+  position: relative;
+  -webkit-box-flex: 1;
+}
+
+.mission .controls > * {
+  position: absolute;
+  opacity: 0;
+  width: 100%;
+  height: 100%;
+  -webkit-transition: opacity 500ms linear;
+}
+
+.mission.choosing-people .choose-party-view,
+.mission.voting .vote-view,
+.mission.on-mission .act-view {
+  opacity: 1;
+  z-index: 1;
+}
+
+.choose-party-view {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+}
+
+.choose-party-view .choose-people {
+  -webkit-box-flex: 1;
+}
+
+.choose-party-view.filled button {
+  bottom: 0px;
+}
+
+.choose-party-view button {
+  -webkit-transition: bottom 100ms linear;
+  position: absolute;
+  bottom: -50px;
+}
+
+.vote-view {
+  display: -webkit-box;
+  -webkit-box-align: center;
+  -webkit-box-pack: center;
+}
+
+.act-view {
+  display: -webkit-box;
+  -webkit-box-align: center;
+  -webkit-box-pack: center;
+}
+
+button {
+  background-color: #E7EBF2;
+  font-weight: bold;
+}
+
+.voted button {
+  bottom: -50px;
+  -webkit-transition: bottom 100ms linear;
+}
+
+.facepile .person {
+  width: 30px;
+  height: 30px;
+  display: inline-block;
+  vertical-align: middle;
+  margin: 0 1px;
+}
+
+.facepile .person.placeholder {
+  border: 3px dotted #8af;
+  border-radius: 3px;
+  margin: 2px 3px;
+  width: 20px;
+  height: 20px;
+}
+
+.choose-people {
+  background: #273f66;
+  box-shadow: 0px 5px 5px rgba(50, 50, 50, 0.75) inset;
+  border-top: 1px solid #230a36;
+  list-style-type: none;
+  padding: 5px;
+  margin: 0;
+  overflow: scroll;
+  white-space: nowrap;
+}
+
+.choose-people .person-tile {
+  padding: 5px;
+  margin: 5px;
+  display: inline-block;
+  text-align: center;
+}
+
+.choose-people .person-tile img {
+  width: 80px;
+  height: 80px;
+  display: block;
+}
+
+.title {
+  font-weight: bold;
+  font-size: 24px;
+  padding-top: 10px;
+}
+
+.center {
+  position: relative;
+  margin: auto;
+  text-align: center;
+}
+
+.bottom {
+  position: absolute;
+  bottom: 0;
+}
+
+button.full {
+  width: 300px;
+  margin: 10px;
+  height: 40px;
+}
+
+button.half {
+  width: 130px;
+  margin: 10px;
+  height: 40px;
+}
+
+button.left {
+  left: 0;
+}
+
+button.right {
+  right: 0;
+}
+
+button.accept {
+  background: #0B2161;
+  color: white;
+}
+
+button.reject {
+  background-color: #610B21;
+  color: white;
+}
+
+.error_state {
+  height: 40px;
+  background: red;
+  z-index: 9;
+}
+
+.selectable {
+  bottom: 0;
+  cursor: pointer;
+  border: 2px solid black;
+  border-radius: 12px;
+  margin: 5px;
+}
+
+.info_view {
+  border: 2px solid black;
+  padding: 5px;
+}
+
+.large {
+  font-size: 22px;
+}
+
+.float-left {
+  float: left;
+}
+
+.splash {
+  position: absolute;
+  z-index: -1;
+  top: 0;
+  left: 0;
+  width: inherit;
+  height: inherit;
+  background-color: rgba(0,0,0,.5);
+}
+
+.splash.active {
+  z-index: 10;
+}
+
+.splash_msg {
+  background-color: white;
+  border: solid 4px black;
+  border-radius: 16px;
+  margin: auto auto;
+  width: 280px;
+  height: 280px;
+  position: relative;
+  top: 70px;
+  text-align: center;
+  font-size: 42px;
+  font-weight: bold;
+}
+
+.splash_txt {
+  padding: 20px;
+}
+
+.game_over .splash_txt {
+  padding: 0px;
+}
+
+.splash_msg button {
+  margin: auto;            
+  width: 200px;
+  height: 50px;
+}
+
+.splash button.exit {
+  display: none;
+}
+
+.splash.game_over button.exit {
+  display: block;
+}
